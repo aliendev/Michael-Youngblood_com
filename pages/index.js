@@ -18,7 +18,11 @@ export default function Index({ preview, allPosts }) {
         </Head>
         <Intro />
         <Container>
-          
+          {/* TODO: Hero */}
+          {/* TODO: Top Call-outs / Features */}
+          {/* TODO: Contact Form */}
+          {/* TODO: Latest blog posts */}
+
         </Container>
       </Layout>
     </>

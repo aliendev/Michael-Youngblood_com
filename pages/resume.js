@@ -11,7 +11,7 @@ import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 
-
+{/* TODO: Finish the resume datasets */}
 const corporateExperience = [
   {
     id: 0,
@@ -119,6 +119,8 @@ export default function Index({ preview, allPosts }) {
           <h1>Michael Youngblood</h1>
           <h2>Corporate Experience</h2>
 
+
+          {/* #TODO: The resume sections needs to be styled */}
           {corporateExperience.map((company, index) => (
             <Grid key={company.id} container spacing={2} className='mb-10'>
               <Grid item xs={12}>
