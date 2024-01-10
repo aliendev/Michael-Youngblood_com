@@ -18,10 +18,16 @@ export default function Index({ preview, allPosts }) {
         </Head>
         <Intro />
         <Container>
-          {/* TODO: Hero */}
-          {/* TODO: Top Call-outs / Features */}
-          {/* TODO: Contact Form */}
-          {/* TODO: Latest blog posts */}
+          {/* TODO: Make the breadcrumbs in the navigation work */}
+          {/* TODO: Make the breadcrumbs in the navigation align to the name in the logo */}
+
+
+          {/* TODO: Make the Hero */}
+          {/* TODO: Make the Top Call-outs / Features */}
+          {/* TODO: Make the Contact Form */}
+          {/* TODO: Make the Latest blog posts */}
+
+          {/* TODO: Make the Footer */}
 
         </Container>
       </Layout>
