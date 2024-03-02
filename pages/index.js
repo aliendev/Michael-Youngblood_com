@@ -1,11 +1,12 @@
 import Container from '../components/container'
-import MoreStories from '../components/more-stories'
-import HeroPost from '../components/hero-post'
 import Intro from '../components/intro'
 import Layout from '../components/layout'
 import { getAllPostsForHome } from '../lib/api'
 import Head from 'next/head'
-import { CMS_NAME } from '../lib/constants'
+import Hero from '../components/hero'
+import Features3Up from '../components/features-3up'
+import FeaturesBlogs from '../components/features-blogs'
+
 
 export default function Index({ preview, allPosts }) {
   const heroPost = allPosts[0]
@@ -16,16 +17,17 @@ export default function Index({ preview, allPosts }) {
         <Head>
           <title>{`Michael Youngblood, Software Engineer Manager, Blog and CV`}</title>
         </Head>
-        <Intro />
         <Container>
           {/* TODO: Make the breadcrumbs in the navigation work */}
-          {/* TODO: Make the breadcrumbs in the navigation align to the name in the logo */}
 
 
-          {/* TODO: Make the Hero */}
-          {/* TODO: Make the Top Call-outs / Features */}
+          {/* TODO: Make favicon */}
+          {/* TODO: Make a logo */}
+
+          <Hero />
+          {/* <Features3Up /> */}
           {/* TODO: Make the Contact Form */}
-          {/* TODO: Make the Latest blog posts */}
+          {/* <FeaturesBlogs /> */}
 
           {/* TODO: Make the Footer */}
 
