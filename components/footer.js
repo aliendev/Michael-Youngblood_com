@@ -14,12 +14,12 @@ export default function Footer() {
               {/* TODO: Add SVG logo for me. */}
               {/* <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg> */}
             </a>
-            <span class="mb-3 mb-md-0 text-muted">Copyright &copy; 1982 - {currentYear} Michael Youngblood</span>
+            <span class="mb-3 mb-md-0 text-muted">Copyright &copy; 1982 - {currentYear} Michael Youngblood. All rights reserved.</span>
           </div>
 
           <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-            <li class="ms-3"><a class="text-muted" href="#">AlienDev.com</a></li>
-            <li class="ms-3"><a class="text-muted" href="#">Alien.Studio</a></li>
+            <li class="ms-3"><a class="text-muted" href="https://aliendev.com">AlienDev.com</a></li>
+            <li class="ms-3"><a class="text-muted" href="https://alien.studio">Alien.Studio</a></li>
           </ul>
           
           {/* TODO: Add social media links. 
