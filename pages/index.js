@@ -3,7 +3,7 @@ import Intro from '../components/intro'
 import Layout from '../components/layout'
 import { getAllPostsForHome } from '../lib/api'
 import Head from 'next/head'
-import Hero from '../components/hero'
+import Hero from '../components/hero/hero'
 import Features3Up from '../components/features-3up'
 import FeaturesBlogs from '../components/features-blogs'
 
