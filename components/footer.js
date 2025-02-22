@@ -1,6 +1,7 @@
 import Container from './container'
 import { EXAMPLE_PATH } from '../lib/constants'
-import Link from 'next/link';
+import Link from 'next/link'
+import { Github, TwitterX, Twitch } from 'react-bootstrap-icons'
 
 const currentYear = new Date().getFullYear();
 
@@ -22,9 +23,9 @@ export default function Footer() {
             <li class="ms-3"><Link className="text-muted" href="https://aliendev.com">AlienDev.com</Link></li>
           </ul>
           <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-            <li class="ms-3"><Link className="text-muted" href="https://x.com/aliendev2"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></Link></li>
-            <li class="ms-3"><Link className="text-muted" href="https://bsky.app/profile/aliendev.bsky.social"><svg class="bi" width="24" height="24"><use xlink:href="#bluesky"></use></svg></Link></li>
-            <li class="ms-3"><Link className="text-muted" href="https://github.com/aliendev"><svg class="bi" width="24" height="24"><use xlink:href="#github"></use></svg></Link></li>
+            <li class="ms-3"><Link className="text-muted" href="https://x.com/aliendev2"><TwitterX title='AlienDev on Twitter'/></Link></li>
+            <li class="ms-3"><Link className="text-muted" href="https://www.twitch.tv/aliendev2"><Twitch title='AlienDev on Twitch' /></Link></li>
+            <li class="ms-3"><Link className="text-muted" href="https://github.com/aliendev"><Github title='Michael Youngblood on Github' /></Link></li>
           </ul>
         </footer>
 
