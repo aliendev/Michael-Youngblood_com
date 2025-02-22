@@ -12,6 +12,40 @@ import { getAllPostsWithSlug, getPostAndMorePosts } from '../../lib/api'
 import PostTitle from '../../components/post-title'
 import { CMS_NAME } from '../../lib/constants'
 
+/* 
+export const GET_ARTICLE = gql`
+  query blogArticle ($slug:String!) {
+    blogArticleCollection ( where:{ slug:$slug }, limit:1 ) {
+      items {
+        slug
+        articleTitle
+        articlePostDate
+        excerpt
+        coverImage{
+          url
+          description
+        }
+        thumbnail {
+          url
+          description
+        }
+        content {
+          json
+        }
+        author {
+          name
+          picture {
+            url
+            description
+          }
+        }
+      }
+    }
+  }
+`;
+*/
+
+
 export default function Post({ post, morePosts, preview }) {
   const router = useRouter()
 
