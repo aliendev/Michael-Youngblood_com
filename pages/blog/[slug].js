@@ -1,108 +1,77 @@
-import { useRouter } from 'next/router'
 import Head from 'next/head'
-import ErrorPage from 'next/error'
 import Container from '../../components/container'
 import PostBody from '../../components/post-body'
-import MoreStories from '../../components/more-stories'
-import Header from '../../components/header'
 import PostHeader from '../../components/post-header'
-import SectionSeparator from '../../components/section-separator'
 import Layout from '../../components/layout'
-import { getAllPostsWithSlug, getPostAndMorePosts } from '../../lib/api'
 import PostTitle from '../../components/post-title'
-import { CMS_NAME } from '../../lib/constants'
 
-/* 
-export const GET_ARTICLE = gql`
-  query blogArticle ($slug:String!) {
-    blogArticleCollection ( where:{ slug:$slug }, limit:1 ) {
-      items {
-        slug
-        articleTitle
-        articlePostDate
-        excerpt
-        coverImage{
-          url
-          description
-        }
-        thumbnail {
-          url
-          description
-        }
-        content {
-          json
-        }
-        author {
-          name
-          picture {
-            url
-            description
-          }
-        }
-      }
+import apolloClient, { USE_PREVIEW_CONTENT } from '../../lib/apollo-client'
+import { ONE_ARTICLE_QUERY } from '../../lib/contentfulSchema'
+
+export async function getServerSideProps({ params }) {
+  const { slug } = params;
+
+  const { data, errors, error } = await apolloClient.query({
+      query: ONE_ARTICLE_QUERY,
+      variables: { slug, preview: USE_PREVIEW_CONTENT },
+      fetchPolicy: USE_PREVIEW_CONTENT ? 'no-cache' : undefined
+  });
+
+  if (errors || error) {
+    return { notFound: true };
+  }
+
+  if (!("blogArticleCollection" in data) || data.blogArticleCollection.total !== 1) {
+    console.log('NOTHING FOUND')
+    return { notFound: true };
+  }
+
+  return {
+    props: {
+      blogData: { ...data.blogArticleCollection.items[0] }
     }
-  }
-`;
-*/
+  };
+}
 
-
-export default function Post({ post, morePosts, preview }) {
-  const router = useRouter()
-
-  if (!router.isFallback && !post) {
-    return <ErrorPage statusCode={404} />
-  }
-
+const BlogArticle = ({ blogData }) => {
+  console.log(blogData)
+  const metaTitle = blogData.articleTitle ? blogData.articleTitle : blogData.articleTitle;
+  const metaDesc = blogData.excerpt ? blogData.excerpt : blogData.excerpt;
   return (
-    <Layout preview={preview}>
+    <Layout>
       <Container>
-        <Header />
-        {router.isFallback ? (
-          <PostTitle>Loading…</PostTitle>
+
+
+        <Head>
+            {metaTitle && <title>{`${metaTitle} | Michael Youngblood`}</title>}
+            {metaDesc && <meta name="description" content={metaDesc} />}
+        </Head>
+        {!blogData?.articleTitle ? (
+            <PostTitle>Loading...</PostTitle>
         ) : (
-          <>
-            <article>
-              <Head>
-                <title>
-                  {`${post.title} | Next.js Blog Example with ${CMS_NAME}`}
-                </title>
-                <meta property="og:image" content={post.coverImage.url} />
-              </Head>
+            <>
+              <article>
               <PostHeader
-                title={post.title}
-                coverImage={post.coverImage}
-                date={post.date}
-                author={post.author}
+                title={blogData.articleTitle}
+                coverImage={blogData.coverImage}
+                date={blogData.date}
+                author={blogData.author}
               />
-              <PostBody content={post.content} />
-            </article>
+              <PostBody content={blogData.content} />
+              </article>
+
+            {/* TODO: Add read more
             <SectionSeparator />
             {morePosts && morePosts.length > 0 && (
               <MoreStories posts={morePosts} />
             )}
-          </>
+            */}
+
+            </>
         )}
       </Container>
     </Layout>
-  )
-}
+  );
+};
+export default BlogArticle;
 
-export async function getStaticProps({ params, preview = false }) {
-  const data = await getPostAndMorePosts(params.slug, preview)
-
-  return {
-    props: {
-      preview,
-      post: data?.post ?? null,
-      morePosts: data?.morePosts ?? null,
-    },
-  }
-}
-
-export async function getStaticPaths() {
-  const allPosts = await getAllPostsWithSlug()
-  return {
-    paths: allPosts?.map(({ slug }) => `/posts/${slug}`) ?? [],
-    fallback: true,
-  }
-}
