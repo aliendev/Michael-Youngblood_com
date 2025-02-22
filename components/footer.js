@@ -1,5 +1,6 @@
 import Container from './container'
 import { EXAMPLE_PATH } from '../lib/constants'
+import Link from 'next/link';
 
 const currentYear = new Date().getFullYear();
 
@@ -18,12 +19,12 @@ export default function Footer() {
           </div>
 
           <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-            <li class="ms-3"><a class="text-muted" href="https://aliendev.com">AlienDev.com</a></li>
+            <li class="ms-3"><Link className="text-muted" href="https://aliendev.com">AlienDev.com</Link></li>
           </ul>
           <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-            <li class="ms-3"><a class="text-muted" href="https://x.com/aliendev2"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
-            <li class="ms-3"><a class="text-muted" href="https://bsky.app/profile/aliendev.bsky.social"><svg class="bi" width="24" height="24"><use xlink:href="#bluesky"></use></svg></a></li>
-            <li class="ms-3"><a class="text-muted" href="https://github.com/aliendev"><svg class="bi" width="24" height="24"><use xlink:href="#github"></use></svg></a></li>
+            <li class="ms-3"><Link className="text-muted" href="https://x.com/aliendev2"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></Link></li>
+            <li class="ms-3"><Link className="text-muted" href="https://bsky.app/profile/aliendev.bsky.social"><svg class="bi" width="24" height="24"><use xlink:href="#bluesky"></use></svg></Link></li>
+            <li class="ms-3"><Link className="text-muted" href="https://github.com/aliendev"><svg class="bi" width="24" height="24"><use xlink:href="#github"></use></svg></Link></li>
           </ul>
         </footer>
 
