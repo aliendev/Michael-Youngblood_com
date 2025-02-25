@@ -1,10 +1,12 @@
 import Container from "../../components/container";
 import MoreArticles from "../../components/more-articles";
+import BlogListing from "../../components/BlogListing/BlogListing"
 import Layout from "../../components/layout";
 import Head from "next/head";
 
 import apolloClient, { USE_PREVIEW_CONTENT } from "../../lib/apollo-client";
 import { ALL_ARTICLES_QUERY } from "../../lib/contentfulSchema";
+import SectionSeparator from "../../components/section-separator";
 
 export async function getServerSideProps({ params }) {
     const { data, errors, error } = await apolloClient.query({
@@ -37,11 +39,13 @@ const BlogIndex = ({ blogData }) => {
                 <title>{`Michael Youngblood's Blog`}</title>
             </Head>
             <Container>
-                <h1 className="mb-8 text-6xl md:text-7xl font-bold tracking-tighter leading-tight">
+                <h1 className="font-bold">
                     Michael Youngblood's Blog
                 </h1>
+                <SectionSeparator />
 
-                <MoreArticles articles={blogData} />
+                <BlogListing articles={blogData} />
+
                 {blogData.length > 0 && <MoreStories posts={morePosts} />}
             </Container>
         </Layout>
