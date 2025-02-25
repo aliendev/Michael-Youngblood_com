@@ -1,7 +1,6 @@
 import Container from '../../components/container'
-import MoreStories from '../../components/more-stories'
+import MoreArticles from '../../components/more-articles'
 import HeroPost from '../../components/hero-post'
-import Intro from '../../components/intro'
 import Layout from '../../components/layout'
 import Head from 'next/head'
 
@@ -19,8 +18,7 @@ export async function getServerSideProps({ params }) {
     return { notFound: true };
   }
 
-  if (!("blogArticleCollection" in data) || data.blogArticleCollection.total !== 1) {
-    console.log('NOTHING FOUND')
+  if ( !("blogArticleCollection" in data) ) {
     return { notFound: true };
   }
 
@@ -32,7 +30,6 @@ export async function getServerSideProps({ params }) {
 }
 
 const BlogIndex = ({ blogData }) => {
-  console.log(blogData)
 
   const heroPost = blogData[0]
 
@@ -42,17 +39,7 @@ const BlogIndex = ({ blogData }) => {
         <title>{`Michael Youngblood's Blog`}</title>
       </Head>
       <Container>
-          <Intro />
-          {heroPost && (
-            <HeroPost
-              title={heroPost.title}
-              coverImage={heroPost.thumbnail}
-              date={heroPost.date}
-              author={heroPost.author}
-              slug={heroPost.slug}
-              excerpt={heroPost.excerpt}
-            />
-          )}
+          <MoreArticles articles={blogData} />
           {blogData.length > 0 && <MoreStories posts={morePosts} />}
         </Container>
     </Layout>
