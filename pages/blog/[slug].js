@@ -7,6 +7,7 @@ import PostTitle from '../../components/post-title'
 
 import apolloClient, { USE_PREVIEW_CONTENT } from '../../lib/apollo-client'
 import { ONE_ARTICLE_QUERY } from '../../lib/contentfulSchema'
+import MoreArticles from '../../components/more-articles'
 
 export async function getServerSideProps({ params }) {
   const { slug } = params;
@@ -60,13 +61,11 @@ const BlogArticle = ({ blogData }) => {
               <PostBody content={blogData.content} />
               </article>
 
-            {/* TODO: Add read more
-            <SectionSeparator />
-            {morePosts && morePosts.length > 0 && (
-              <MoreStories posts={morePosts} />
-            )}
-            */}
-
+              {/* TODO: I need to query for latest  5 articles or so and populate this.
+              {MoreArticles && MoreArticles.length > 0 && (
+                <MoreStories posts={MoreArticles} />
+              )}
+              */}
             </>
         )}
       </Container>
