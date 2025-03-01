@@ -36,7 +36,7 @@ export default function BlogListing({ articles }) {
         <section>
             <div className="">
                 {Object.values(articles).map((article) => (
-                    <div className='row mb-5'>
+                    <div key={article.sys.id} className='row mb-5'>
                         <div className="col-3">
                             <Link href={`/blog/${article.slug}`}>
                                 <img width="200" height="170" alt={article.articleTitle} src={article.thumbnail.url} className='noStretch mb-2' />
