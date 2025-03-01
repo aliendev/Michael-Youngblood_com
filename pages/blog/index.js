@@ -31,7 +31,6 @@ export async function getServerSideProps({ params }) {
 }
 
 const BlogIndex = ({ blogData }) => {
-    const heroPost = blogData[0];
 
     return (
         <Layout>

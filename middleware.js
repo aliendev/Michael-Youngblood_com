@@ -7,7 +7,7 @@ import { NextResponse } from "next/server";
  * @param {*} req the NextRequest object
  * @returns {NextResponse}
  */
-export function middleware(req) {
+export default function middleware(req) {
     const { pathname, origin } = req.nextUrl;
     const lowercasePathname = pathname.toLowerCase();
 
@@ -18,6 +18,7 @@ export function middleware(req) {
     }
 
     return NextResponse.next();
+
 }
 
 export const config = {
