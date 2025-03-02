@@ -1,13 +1,13 @@
 import Head from "next/head";
 import Container from "../../components/container";
-import PostBody from "../../components/post-body";
-import PostHeader from "../../components/post-header";
+import PostBody from "../../components/BlogArticle/post-body";
+import PostHeader from "../../components/BlogArticle/post-header";
 import Layout from "../../components/layout";
-import PostTitle from "../../components/post-title";
+import PostTitle from "../../components/BlogArticle/post-title";
 
 import apolloClient, { USE_PREVIEW_CONTENT } from "../../lib/apollo-client";
 import { ONE_ARTICLE_QUERY } from "../../lib/contentfulSchema";
-import MoreArticles from "../../components/more-articles";
+import MoreArticles from "../../components/BlogListing/more-articles";
 
 export async function getServerSideProps({ params }) {
     const { slug } = params;

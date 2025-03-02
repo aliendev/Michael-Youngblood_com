@@ -1,5 +1,5 @@
 import Container from "../../components/container";
-import MoreArticles from "../../components/more-articles";
+import MoreArticles from "../../components/BlogListing/more-articles";
 import BlogListing from "../../components/BlogListing/BlogListing"
 import Layout from "../../components/layout";
 import Head from "next/head";
