@@ -1,9 +1,9 @@
-import Container from "../components/container";
+import Container from "../components/DesignSystem/container";
 import Layout from "../components/layout";
 import Head from "next/head";
 import PageFeaturedProduct from "../components/PageFeaturedProduct/PageFeaturedProduct";
 
-export default function Index() {
+export default function Homepage() {
   return (
     <>
       <Layout>

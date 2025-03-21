@@ -8,7 +8,7 @@ describe('renders copyright date range', () => {
   expect(copyrightText).toBeInTheDocument();
 });
 
-it('renders GlobalFooter unchanged', () => {
+test('renders GlobalFooter unchanged', () => {
   const { container } = render(<GlobalFooter />);
   expect(container).toMatchSnapshot();
 })

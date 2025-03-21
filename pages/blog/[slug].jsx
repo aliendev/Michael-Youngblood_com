@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Container from "../../components/container";
+import Container from "../../components/DesignSystem/Container";
 import PostBody from "../../components/BlogArticle/post-body";
 import PostHeader from "../../components/BlogArticle/post-header";
 import Layout from "../../components/layout";
