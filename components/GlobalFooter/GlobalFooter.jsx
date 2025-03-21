@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Container from "../DesignSystem/container";
+import Container from "..//DesignSystem/Container";
 import { Github, TwitterX, Twitch } from "react-bootstrap-icons";
 
 const currentYear = new Date().getFullYear();
