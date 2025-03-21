@@ -1,4 +1,4 @@
-import PostPreview from './post-preview'
+import PostPreview from "./post-preview";
 
 export default function MoreArticles({ articles }) {
   return (
@@ -20,5 +20,5 @@ export default function MoreArticles({ articles }) {
         ))}
       </div>
     </section>
-  )
+  );
 }

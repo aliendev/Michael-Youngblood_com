@@ -2,6 +2,9 @@
   "private": true,
   "scripts": {
     "dev": "next",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:update": "jest --updateSnapshot",
     "build": "next build",
     "start": "next start",
     "setup": "node ./contentful/setup.js"
@@ -22,8 +25,13 @@
     "sass": "^1.69.7"
   },
   "devDependencies": {
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.2.0",
     "autoprefixer": "10.4.2",
     "contentful-import": "^9.4.63",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
     "postcss": "^8.4.47"
   }
 }
