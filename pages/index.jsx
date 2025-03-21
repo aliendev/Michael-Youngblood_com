@@ -1,4 +1,4 @@
-import Container from "../components/DesignSystem/container";
+import Container from "../components/DesignSystem/Container";
 import Layout from "../components/layout";
 import Head from "next/head";
 import PageFeaturedProduct from "../components/PageFeaturedProduct/PageFeaturedProduct";
