@@ -2,8 +2,9 @@
   "private": true,
   "scripts": {
     "dev": "next",
-    "test": "jest --watch",
+    "test": "jest",
     "test:watch": "jest --watch",
+    "test:update": "jest --updateSnapshot",
     "build": "next build",
     "start": "next start",
     "setup": "node ./contentful/setup.js"

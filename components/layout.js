@@ -1,5 +1,4 @@
-import Alert from "../components/alert";
-import Meta from "../components/meta";
+import Meta from "./PageMetaData/PageMetaData";
 import GlobalNavbar from "./GlobalNavbar/GlobalNavbar";
 import GlobalFooter from "./GlobalFooter/GlobalFooter";
 

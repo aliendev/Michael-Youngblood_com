@@ -7,7 +7,6 @@ import PostTitle from "../../components/BlogArticle/post-title";
 
 import apolloClient, { USE_PREVIEW_CONTENT } from "../../lib/apollo-client";
 import { ONE_ARTICLE_QUERY } from "../../lib/contentfulSchema";
-import MoreArticles from "../../components/BlogListing/more-articles";
 
 export async function getServerSideProps({ params }) {
   const { slug } = params;
@@ -26,7 +25,6 @@ export async function getServerSideProps({ params }) {
     !("blogArticleCollection" in data) ||
     data.blogArticleCollection.total !== 1
   ) {
-    console.log("NOTHING FOUND");
     return { notFound: true };
   }
 
@@ -38,7 +36,6 @@ export async function getServerSideProps({ params }) {
 }
 
 const BlogArticle = ({ blogData }) => {
-  console.log(blogData);
   const metaTitle = blogData.articleTitle
     ? blogData.articleTitle
     : blogData.articleTitle;

@@ -1,8 +1,8 @@
 import Link from "next/link";
 import Avatar from '../../components/DesignSystem/Avatar'
-import DateComponent from "../../components/date";
-import CoverImage from "../../components/cover-image";
-import ContentfulImage from "../contentful-image";
+import FormattedDate from "../../components/DesignSystem/Date";
+import CoverImage from "../DesignSystem/CoverImage";
+import ContentfulImage from "../DesignSystem/ContentfulImage";
 
 export function PostPreview({
   title,
@@ -23,7 +23,7 @@ export function PostPreview({
         </Link>
       </h3>
       <div className="text-lg mb-4">
-        <DateComponent dateString={date} />
+        <FormattedDate dateString={date} />
       </div>
       <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
       {author && <Avatar name={author.name} picture={author.picture} />}
@@ -61,7 +61,7 @@ export default function BlogListing({ articles }) {
               <p className="mb-0">Written by {article.author.name}</p>
               <p>
                 Published on{" "}
-                <DateComponent dateString={article.articlePostDate} />
+                <FormattedDate dateString={article.articlePostDate} />
               </p>
             </div>
           </div>

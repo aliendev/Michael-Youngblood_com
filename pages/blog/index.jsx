@@ -5,7 +5,7 @@ import Head from "next/head";
 
 import apolloClient, { USE_PREVIEW_CONTENT } from "../../lib/apollo-client";
 import { ALL_ARTICLES_QUERY } from "../../lib/contentfulSchema";
-import SectionSeparator from "../../components/section-separator";
+import SectionSeparator from "../../components/DesignSystem/SectionSeparator";
 
 export async function getServerSideProps({ params }) {
     const { data, errors, error } = await apolloClient.query({

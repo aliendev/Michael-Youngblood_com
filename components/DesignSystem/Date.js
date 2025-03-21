@@ -1,6 +1,6 @@
 import { format } from "date-fns";
 
-export default function DateComponent({ date: String }) {
+export default function FormattedDate({ date: String }) {
     try {
         <time dateTime={date}>
             {format(new Date(dateString), "YYYY MMMM DD")}
