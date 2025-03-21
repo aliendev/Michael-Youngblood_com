@@ -24,8 +24,13 @@ indent_size = 4
 [Makefile]
 indent_style = tab
 
+# Indentation override for all JS and JSX files to match industry standards 
+[*.{js,jsx}]
+indent_style = space
+indent_size = 2
+
 # Indentation override for all JS under lib directory
-[lib/**.js]
+[lib/**.{js,jsx}]
 indent_style = space
 indent_size = 2
 

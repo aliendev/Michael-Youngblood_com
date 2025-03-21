@@ -1,11 +1,9 @@
-import Container from '../components/container'
-import Layout from '../components/layout'
-import Head from 'next/head'
-import Hero from '../components/hero/hero'
-
+import Container from "../components/container";
+import Layout from "../components/layout";
+import Head from "next/head";
+import PageFeaturedProduct from "../components/PageFeaturedProduct/PageFeaturedProduct";
 
 export default function Index() {
-
   return (
     <>
       <Layout>
@@ -15,20 +13,17 @@ export default function Index() {
         <Container>
           {/* TODO: Make the breadcrumbs in the navigation work */}
 
-
           {/* TODO: Make favicon */}
           {/* TODO: Make a logo */}
 
-          <Hero />
+          <PageFeaturedProduct />
           {/* <Features3Up /> */}
           {/* TODO: Make the Contact Form */}
           {/* <FeaturesBlogs /> */}
 
           {/* TODO: Make the Footer */}
-
         </Container>
       </Layout>
     </>
-  )
+  );
 }
-
