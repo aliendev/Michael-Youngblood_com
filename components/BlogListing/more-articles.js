@@ -10,7 +10,7 @@ export default function MoreArticles({ articles }) {
         {Object.values(articles).map((article) => (
           <PostPreview
             key={article.sys.id}
-            title={article.articleTitle}
+            alt={article.articleTitle}
             coverImage={article.thumbnail}
             date={article.articlePostDate}
             author={article.author}

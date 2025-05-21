@@ -10,7 +10,7 @@ export default function GlobalNavbar() {
             className="d-flex align-items-center mb-2 me-5 mb-lg-0 text-white text-decoration-none"
           >
             <CodeSlash
-              title="Michael Youngblood's Portfolio"
+              alt="Michael Youngblood's Portfolio"
               className="me-2"
             />
             Michael Youngblood
@@ -34,7 +34,7 @@ export default function GlobalNavbar() {
             >
               This Codebase{" "}
               <Github
-                title="Code Repo for Michael-Youngblood.com"
+                alt="Code Repo for Michael-Youngblood.com"
                 className="align-text-top ms-1"
               />
             </a>
