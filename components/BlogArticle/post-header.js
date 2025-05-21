@@ -17,7 +17,7 @@ export default function PostHeader({ title, coverImage, date, author }) {
       </div>
       <SectionSeparator />
       <div className="mb-3">
-        <CoverImage title={title} url={coverImage.url} />
+        <CoverImage alt={title} url={coverImage.url} />
       </div>
     </>
   );

@@ -27,7 +27,7 @@ export default function GlobalFooter() {
                 href="https://github.com/aliendev/Michael-Youngblood_com"
               >
                 <Github
-                  title="Code Repo for Michael-Youngblood.com"
+                  alt="Code Repo for Michael-Youngblood.com"
                   className="align-text-top"
                 />{" "}
                 Code Repo
@@ -37,7 +37,7 @@ export default function GlobalFooter() {
           <ul className="nav col-md-2 justify-content-end list-unstyled d-flex">
             <li className="ms-3">
               <Link className="text-muted" href="https://x.com/aliendev2">
-                <TwitterX title="AlienDev on Twitter" />
+                <TwitterX alt="AlienDev on Twitter" />
               </Link>
             </li>
             <li className="ms-3">
@@ -45,12 +45,12 @@ export default function GlobalFooter() {
                 className="text-muted"
                 href="https://www.twitch.tv/aliendev2"
               >
-                <Twitch title="AlienDev on Twitch" />
+                <Twitch alt="AlienDev on Twitch" />
               </Link>
             </li>
             <li className="ms-3">
               <Link className="text-muted" href="https://github.com/aliendev">
-                <Github title="Michael Youngblood on Github" />
+                <Github alt="Michael Youngblood on Github" />
               </Link>
             </li>
           </ul>
