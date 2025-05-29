@@ -1,8 +1,7 @@
 import Link from "next/link";
 import Avatar from '../../components/DesignSystem/Avatar'
 import FormattedDate from "../../components/DesignSystem/Date";
-import CoverImage from "../DesignSystem/CoverImage";
-import ContentfulImage from "../DesignSystem/ContentfulImage";
+import Thumbnail from "../DesignSystem/Thumbnail";
 
 export function PostPreview({
   title,
@@ -15,7 +14,7 @@ export function PostPreview({
   return (
     <div>
       <div className="mb-5">
-        <CoverImage title={title} slug={slug} url={coverImage.url} />
+        <Thumbnail title={title} directory={'/blog/'} slug={slug} imageUrl={coverImage.url} />
       </div>
       <h3 className="text-3xl mb-3 leading-snug">
         <Link href={`/blog/${slug}`} className="hover:underline">
@@ -36,18 +35,14 @@ export default function BlogListing({ articles }) {
     <section>
       <div className="">
         {Object.values(articles).map((article) => (
-          <div key={article.sys.id} className="row mb-5">
-            <div className="col-3">
+          <div key={article.sys.id} className="row mb-4 p-3 border border-1 border-gray rounded shadow">
+            <div className="col">
               <Link href={`/blog/${article.slug}`}>
-                <img
-                  width="200"
-                  height="170"
-                  alt={article.articleTitle}
-                  src={article.thumbnail.url}
-                  className="noStretch mb-2"
-                />
+                <Thumbnail title={article.title} directory={'/blog/'} slug={article.slug} imageUrl={article.thumbnail.url} />
               </Link>
             </div>
+
+
             <div className="col-lg-9 col-md-auto">
               <p className="h4 leading-snug">
                 <Link
