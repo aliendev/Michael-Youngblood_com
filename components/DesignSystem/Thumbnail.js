@@ -1,21 +1,23 @@
 import ContentfulImage from "./ContentfulImage";
 import Link from "next/link";
 
-export default function Thumbnail({ title, url, slug }) {
+export default function Thumbnail({ title, directory, imageUrl, slug }) {
     const image = (
+      <>
         <ContentfulImage
-            width={2000}
-            height={500}
+            width={200}
+            height={200}
             alt={`${title}`}
-            className="hover:shadow-medium transition-shadow duration-200 noStretch"
-            src={url}
+            className="object-fit-cover mw-100 w-100"
+            src={imageUrl}
         />
+        </>
     );
 
     return (
         <div className="sm:mx-0">
             {slug ? (
-                <Link href={`/blog/${slug}`} aria-label={title}>
+                <Link href={`${directory}${slug}`} aria-label={title}>
                     {image}
                 </Link>
             ) : (
