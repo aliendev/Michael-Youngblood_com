@@ -1,8 +1,7 @@
 import Link from "next/link";
 import Avatar from '../../components/DesignSystem/Avatar'
 import FormattedDate from "../../components/DesignSystem/Date";
-import CoverImage from "../DesignSystem/CoverImage";
-import ContentfulImage from "../DesignSystem/ContentfulImage";
+import Thumbnail from "../DesignSystem/Thumbnail";
 
 export function PostPreview({
   title,
@@ -15,7 +14,7 @@ export function PostPreview({
   return (
     <div>
       <div className="mb-5">
-        <CoverImage title={title} slug={slug} url={coverImage.url} />
+        <Thumbnail title={title} slug={slug} url={coverImage.url} />
       </div>
       <h3 className="text-3xl mb-3 leading-snug">
         <Link href={`/blog/${slug}`} className="hover:underline">
