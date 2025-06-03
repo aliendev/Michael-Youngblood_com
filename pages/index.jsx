@@ -2,6 +2,7 @@ import Container from "../components/DesignSystem/Container";
 import Layout from "../components/layout";
 import Head from "next/head";
 import PageFeaturedProduct from "../components/PageFeaturedProduct/PageFeaturedProduct";
+import GithubActivity from "../components/GithubActivity/GithubActivity";
 
 export default function Homepage() {
   return (
@@ -17,6 +18,7 @@ export default function Homepage() {
           {/* TODO: Make a logo */}
 
           <PageFeaturedProduct />
+          <GithubActivity />
           {/* <Features3Up /> */}
           {/* TODO: Make the Contact Form */}
           {/* <FeaturesBlogs /> */}
