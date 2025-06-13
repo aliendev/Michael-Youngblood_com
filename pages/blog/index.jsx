@@ -1,11 +1,11 @@
-import Container from "../../components/DesignSystem/Container";
-import BlogListing from "../../components/BlogListing/BlogListing"
-import Layout from "../../components/layout";
+import Container from "@/components/DesignSystem/Container";
+import BlogListing from "@/components/BlogListing/BlogListing"
+import Layout from "@/components/layout";
 import Head from "next/head";
 
-import apolloClient, { USE_PREVIEW_CONTENT } from "../../lib/apollo-client";
-import { ALL_ARTICLES_QUERY } from "../../lib/contentfulSchema";
-import SectionSeparator from "../../components/DesignSystem/SectionSeparator";
+import apolloClient, { USE_PREVIEW_CONTENT } from "@/lib/apollo-client";
+import { ALL_ARTICLES_QUERY } from "@/lib/contentfulSchema";
+import SectionSeparator from "@/components/DesignSystem/SectionSeparator";
 
 export async function getServerSideProps({ params }) {
     const { data, errors, error } = await apolloClient.query({
