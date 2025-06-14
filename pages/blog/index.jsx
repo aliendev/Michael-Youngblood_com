@@ -1,11 +1,13 @@
-import Container from "../../components/DesignSystem/Container";
-import BlogListing from "../../components/BlogListing/BlogListing"
-import Layout from "../../components/layout";
 import Head from "next/head";
 
-import apolloClient, { USE_PREVIEW_CONTENT } from "../../lib/apollo-client";
-import { ALL_ARTICLES_QUERY } from "../../lib/contentfulSchema";
-import SectionSeparator from "../../components/DesignSystem/SectionSeparator";
+import Layout from "@/components/layout";
+import Container from "@/components/DesignSystem/Container";
+import BlogListing from "@/components/BlogListing/BlogListing"
+import SectionSeparator from "@/components/DesignSystem/SectionSeparator";
+
+import apolloClient, { USE_PREVIEW_CONTENT } from "@/lib/apollo-client";
+import { ALL_ARTICLES_QUERY } from "@/lib/contentfulSchema";
+
 
 export async function getServerSideProps({ params }) {
     const { data, errors, error } = await apolloClient.query({
@@ -15,22 +17,37 @@ export async function getServerSideProps({ params }) {
     });
 
     if (errors || error) {
+        console.error('Error fetching blog articles:', errors || error);
         return { notFound: true };
     }
 
     if (!("blogArticleCollection" in data)) {
+        console.error('No blog articles found in data');
         return { notFound: true };
     }
+    
+    return {
+        props: {
+            blogData: data.blogArticleCollection.items,
+        },
+    };
+
+    if (errors || error) {
+        return { notFound: true };
+    };
+
+    if (!("blogArticleCollection" in data)) {
+        return { notFound: true };
+    };
 
     return {
         props: {
-            blogData: { ...data.blogArticleCollection.items },
+            blogData: data.blogArticleCollection.items,
         },
     };
 }
 
 const BlogIndex = ({ blogData }) => {
-
     return (
         <Layout>
             <Head>
@@ -43,8 +60,6 @@ const BlogIndex = ({ blogData }) => {
                 <SectionSeparator />
 
                 <BlogListing articles={blogData} />
-
-                {blogData.length > 0 && <MoreStories posts={morePosts} />}
             </Container>
         </Layout>
     );

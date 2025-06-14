@@ -1,7 +1,7 @@
 import ContentfulImage from "./ContentfulImage";
 import Link from "next/link";
 
-export default function Thumbnail({ title, directory, imageUrl, slug }) {
+export default function Thumbnail({ title, imageUrl }) {
     const image = (
       <>
         <ContentfulImage
@@ -16,13 +16,7 @@ export default function Thumbnail({ title, directory, imageUrl, slug }) {
 
     return (
         <div className="sm:mx-0">
-            {slug ? (
-                <Link href={`${directory}${slug}`} aria-label={title}>
-                    {image}
-                </Link>
-            ) : (
-                image
-            )}
+            {image}
         </div>
     );
 }

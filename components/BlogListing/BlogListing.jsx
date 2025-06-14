@@ -31,17 +31,29 @@ export function PostPreview({
 }
 
 export default function BlogListing({ articles }) {
+  if (!articles) {
+    return <div>Loading...</div>;
+  }
+
+  if (!Array.isArray(articles)) {
+    console.error('Invalid articles data:', articles);
+    return <div>Error: Invalid data structure</div>;
+  }
+
+  if (articles.length === 0) {
+    return <div>No articles found</div>;
+  }
+
   return (
     <section>
       <div className="">
-        {Object.values(articles).map((article) => (
+        {articles.map((article) => (
           <div key={article.sys.id} className="row mb-4 p-3 border border-1 border-gray rounded shadow">
             <div className="col">
               <Link href={`/blog/${article.slug}`}>
-                <Thumbnail title={article.title} directory={'/blog/'} slug={article.slug} imageUrl={article.thumbnail.url} />
+                <Thumbnail title={article.title} imageUrl={article.thumbnail.url} />
               </Link>
             </div>
-
 
             <div className="col-lg-9 col-md-auto">
               <p className="h4 leading-snug">
