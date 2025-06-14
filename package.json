@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "dev": "next",
+    "dev": "NODE_OPTIONS='--inspect' next dev",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:update": "jest --updateSnapshot",

@@ -1,6 +1,5 @@
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS } from "@contentful/rich-text-types";
-import markdownStyles from "../markdown-styles.module.css";
 import RichTextAsset from "../DesignSystem/RichTextAsset";
 
 /*TODO: Make this file consistent with the rest of the codebase. */
