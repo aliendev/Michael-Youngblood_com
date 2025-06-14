@@ -10,14 +10,11 @@ import { ALL_ARTICLES_QUERY } from "@/lib/contentfulSchema";
 
 
 export async function getServerSideProps({ params }) {
-    console.log('Querying blog articles...');
     const { data, errors, error } = await apolloClient.query({
         query: ALL_ARTICLES_QUERY,
         variables: { preview: USE_PREVIEW_CONTENT },
         fetchPolicy: USE_PREVIEW_CONTENT ? "no-cache" : undefined,
     });
-
-    console.log('Query result:', { data, errors, error });
 
     if (errors || error) {
         console.error('Error fetching blog articles:', errors || error);
@@ -28,9 +25,7 @@ export async function getServerSideProps({ params }) {
         console.error('No blog articles found in data');
         return { notFound: true };
     }
-
-    console.log('Blog articles:', data.blogArticleCollection.items);
-
+    
     return {
         props: {
             blogData: data.blogArticleCollection.items,
