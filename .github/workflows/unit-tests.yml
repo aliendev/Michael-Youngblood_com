@@ -1,0 +1,23 @@
+# .github/workflows/unit-tests.yml
+name: Unit Tests
+
+on: 
+  pull_request: 
+    branches: [ main ]
+
+env: 
+  NODE_VERSION: '22.16.0'
+
+jobs: 
+  build: 
+    runs-on: ubuntu-latest
+    steps: 
+      - uses: actions/checkout@v4
+      - name: Use Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - run: npm install
+      - run: npm run build
+      - run: npm run test
+
